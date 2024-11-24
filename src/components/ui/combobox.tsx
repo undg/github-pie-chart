@@ -19,7 +19,7 @@ import {
   PopoverTrigger,
 } from "./popover"
 
-type Item = {value: string, label: string}
+export type Item = {value: string, label: string}
 
 export function Combobox({items}: {items: Item[]}) {
   const [open, setOpen] = React.useState(false)
