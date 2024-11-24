@@ -6,6 +6,7 @@ import {
 	Dialog,
 	DialogContent,
 	DialogDescription,
+	DialogFooter,
 	DialogHeader,
 	DialogTitle,
 	DialogTrigger,
@@ -26,7 +27,6 @@ function App() {
 			idx,
 		})) ?? []
 
-
 	return (
 		<div className="m-8 bg-secondary rounded-3xl w-[1440px] h-[843px] flex flex-col items-start gap-8 p-8">
 			<h1 className="text-9xlg">Github Repository Language</h1>
@@ -39,16 +39,19 @@ function App() {
 				<DialogContent>
 					<DialogHeader>
 						<DialogTitle>Github Repository Language Pie Chart</DialogTitle>
-						<DialogDescription asChild>
-							<>
-								<h2 className="text-md mt-4 text-foreground">
-									Select Github Repository
-								</h2>
-
-								{isLoading ? <div>Loading...</div> : <Combobox items={repos} />}
-							</>
-						</DialogDescription>
 					</DialogHeader>
+					<DialogDescription asChild>
+						<>
+							<h2 className="text-md mt-4 text-foreground">
+								Select Github Repository
+							</h2>
+
+							{isLoading ? <div>Loading...</div> : <Combobox items={repos} />}
+						</>
+					</DialogDescription>
+					<DialogFooter>
+						<Button variant="link">View details</Button>
+					</DialogFooter>
 				</DialogContent>
 			</Dialog>
 		</div>
