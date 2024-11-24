@@ -13,9 +13,39 @@ import {
 } from "./components/ui/dialog"
 import { Combobox, Item } from "./components/ui/combobox"
 import { usePopularRepos } from "./utils/use-popular-repos"
+import { Pie, PieChart } from "recharts"
+
+import { TrendingUp } from "lucide-react"
+
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from "./components/ui/card"
+import {
+	ChartConfig,
+	ChartContainer,
+	ChartLegend,
+	ChartLegendContent,
+	ChartTooltip,
+	ChartTooltipContent,
+} from "./components/ui/chart"
+import { useAtomValue } from "jotai"
+import { languagesAtom } from "./atoms"
+const chartData = [
+	{ browser: "chrome", visitors: 275, fill: "var(--chart-3)" },
+	{ browser: "safari", visitors: 200, fill: "var(--color-safari)" },
+	{ browser: "firefox", visitors: 187, fill: "var(--color-firefox)" },
+	{ browser: "edge", visitors: 173, fill: "var(--color-edge)" },
+	{ browser: "other", visitors: 90, fill: "var(--color-other)" },
+]
 
 function App() {
 	const { data, isLoading, error } = usePopularRepos()
+	const lang = useAtomValue(languagesAtom)
 
 	if (error) return <div>Error: Github API down!</div>
 
@@ -47,6 +77,22 @@ function App() {
 							</h2>
 
 							{isLoading ? <div>Loading...</div> : <Combobox items={repos} />}
+
+							<ChartContainer
+								config={{}}
+								className="mx-auto aspect-square size-full max-h-[250px]"
+							>
+								<PieChart>
+									<ChartTooltip
+										cursor={false}
+										content={<ChartTooltipContent hideLabel />}
+									/>
+									<ChartLegend
+										content={<ChartLegendContent />}
+									/>
+									<Pie data={lang} dataKey="value" nameKey="lang" />
+								</PieChart>
+							</ChartContainer>
 						</>
 					</DialogDescription>
 					<DialogFooter>
