@@ -11,18 +11,20 @@ import {
 	DialogTrigger,
 } from "./components/ui/dialog"
 import { Combobox, Item } from "./components/ui/combobox"
-import { usePopularRepos } from "./hooks/use-popular-repos"
+import { usePopularRepos } from "./utils/use-popular-repos"
 
 function App() {
 	const { data, isLoading, error } = usePopularRepos()
 
-	if (isLoading) return <div>Loading...</div>
 	if (error) return <div>Error: Github API down!</div>
 
-	const repos: Item[] = data?.map(d=>({
-		value: d.id.toString(),
-		label: d.name,
-	})) ?? []
+	const repos: Item[] =
+		data?.map((d, idx) => ({
+			value: d.id.toString(),
+			label: d.name,
+			languagesUrl: d.languages_url,
+			idx,
+		})) ?? []
 
 
 	return (
@@ -43,7 +45,7 @@ function App() {
 									Select Github Repository
 								</h2>
 
-								<Combobox items={repos} />
+								{isLoading ? <div>Loading...</div> : <Combobox items={repos} />}
 							</>
 						</DialogDescription>
 					</DialogHeader>
