@@ -22,10 +22,10 @@ function App() {
 				</DialogTrigger>
 				<DialogContent>
 					<DialogHeader>
-						<DialogTitle>Are you absolutely sure?</DialogTitle>
+						<DialogTitle>Github Repository Language Pie Chart</DialogTitle>
 						<DialogDescription>
-							This action cannot be undone. This will permanently delete your
-							account and remove your data from our servers.
+							<h2 className="text-md mt-4 text-foreground">Select Github Repository</h2>
+
 						</DialogDescription>
 					</DialogHeader>
 				</DialogContent>
