@@ -1,6 +1,7 @@
 import "./App.css"
 import { Button } from "./components/ui/button"
-import { FiPlus } from "react-icons/fi"
+import { Plus } from 'lucide-react';
+
 import {
 	Dialog,
 	DialogContent,
@@ -9,6 +10,30 @@ import {
 	DialogTitle,
 	DialogTrigger,
 } from "./components/ui/dialog"
+import { Combobox } from "./components/ui/combobox";
+
+const items = [
+  {
+    value: "next.js",
+    label: "Next.js",
+  },
+  {
+    value: "sveltekit",
+    label: "SvelteKit",
+  },
+  {
+    value: "nuxt.js",
+    label: "Nuxt.js",
+  },
+  {
+    value: "remix",
+    label: "Remix",
+  },
+  {
+    value: "astro",
+    label: "Astro",
+  },
+]
 
 function App() {
 	return (
@@ -17,7 +42,7 @@ function App() {
 			<Dialog>
 				<DialogTrigger>
 					<Button size="lg">
-						Open Pie Chart <FiPlus />
+						Open Pie Chart <Plus />
 					</Button>
 				</DialogTrigger>
 				<DialogContent>
@@ -25,6 +50,7 @@ function App() {
 						<DialogTitle>Github Repository Language Pie Chart</DialogTitle>
 						<DialogDescription>
 							<h2 className="text-md mt-4 text-foreground">Select Github Repository</h2>
+							<Combobox items={items} />
 
 						</DialogDescription>
 					</DialogHeader>
