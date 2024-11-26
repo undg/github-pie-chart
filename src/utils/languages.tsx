@@ -30,6 +30,9 @@ export async function getLanguages(url: string): Promise<Language[]> {
 		}))
 }
 
+/**
+ * @param url "https://api.github.com/repos/{owner}/{repo}/languages"
+ */
 export function useLanguages(languagesUrl: string) {
 	return useQuery({
 		queryKey: ['languages', languagesUrl],
