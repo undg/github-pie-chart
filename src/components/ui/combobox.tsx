@@ -16,7 +16,7 @@ import {
 import { Popover, PopoverContent, PopoverTrigger } from "./popover"
 import { languagesAtom } from "../../atoms"
 import { useSetAtom } from "jotai"
-import { getLanguages } from "../../utils/get-language"
+import { getLanguages } from "../../utils/languages"
 
 export type Item = { value: string; label: string; languagesUrl: string, idx: number }
 

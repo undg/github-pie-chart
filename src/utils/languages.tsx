@@ -1,4 +1,5 @@
 import { Endpoints } from "@octokit/types"
+import { useQuery } from "react-query"
 type GithubLanguages =
 	Endpoints["GET /repos/{owner}/{repo}/languages"]["response"]["data"]
 
@@ -27,4 +28,12 @@ export async function getLanguages(url: string): Promise<Language[]> {
 			value: data[key],
 			fill: `var(--chart-${idx + 1})`,
 		}))
+}
+
+export function useLanguages(languagesUrl: string) {
+	return useQuery({
+		queryKey: ['languages', languagesUrl],
+		queryFn: () => getLanguages(languagesUrl),
+		enabled: !!languagesUrl,
+	})
 }
