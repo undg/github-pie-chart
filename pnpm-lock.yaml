@@ -57,6 +57,9 @@ importers:
       '@octokit/types':
         specifier: ^13.6.1
         version: 13.6.1
+      '@tanstack/eslint-plugin-query':
+        specifier: ^5.61.3
+        version: 5.61.3(eslint@9.15.0(jiti@1.21.6))(typescript@5.6.3)
       '@types/node':
         specifier: ^22.9.3
         version: 22.9.3
@@ -929,6 +932,11 @@ packages:
     resolution: {integrity: sha512-3j4jx1TppORdTAoBJRd+/wJRGCPC0ETWkXOecJ6PPZLj6SptXkrXcNqdj0oclbKML6FkQltdz7bBA3rUSirZug==}
     cpu: [x64]
     os: [win32]
+
+  '@tanstack/eslint-plugin-query@5.61.3':
+    resolution: {integrity: sha512-tcP6xfoi/22oylcIUCWnfsfSpHZO/2MNq1pzex5NuwbeqEU2TQYJyoUp0Rdmtx9Pl9csPSNK70gBcCjuPQ0+ng==}
+    peerDependencies:
+      eslint: ^8.57.0 || ^9.0.0
 
   '@types/babel__core@7.20.5':
     resolution: {integrity: sha512-qoQprZvz5wQFJwMDqeseRXWv3rqMvhgpbXFfVyWhbx9X47POIA6i/+dXefEmZKoAgOaTdaIgNSMqMIU61yRyzA==}
@@ -2858,6 +2866,14 @@ snapshots:
 
   '@rollup/rollup-win32-x64-msvc@4.27.4':
     optional: true
+
+  '@tanstack/eslint-plugin-query@5.61.3(eslint@9.15.0(jiti@1.21.6))(typescript@5.6.3)':
+    dependencies:
+      '@typescript-eslint/utils': 8.15.0(eslint@9.15.0(jiti@1.21.6))(typescript@5.6.3)
+      eslint: 9.15.0(jiti@1.21.6)
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
 
   '@types/babel__core@7.20.5':
     dependencies:
